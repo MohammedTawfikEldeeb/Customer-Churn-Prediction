@@ -1,0 +1,129 @@
+schema: '2.0'
+stages:
+  data_loading:
+    cmd: python src/data/data_loading.py
+    deps:
+    - path: src/data/data_loading.py
+      hash: md5
+      md5: 6ffcf5f7a1a29db26d2e3d73a0d35cac
+      size: 2983
+    outs:
+    - path: Data/raw
+      hash: md5
+      md5: d78395582934c5f48b92d40dced10bef.dir
+      size: 29953306
+      nfiles: 2
+  data_preprocessing:
+    cmd: python src/data/data_preprocessing.py
+    deps:
+    - path: Data/raw/test.csv
+      hash: md5
+      md5: dc90c49af0ea92aacd30624c9fb2192b
+      size: 2907071
+    - path: Data/raw/train.csv
+      hash: md5
+      md5: 16f1b7951202779be27a6b61929f1c51
+      size: 27046235
+    - path: src/data/data_preprocessing.py
+      hash: md5
+      md5: 15ff914559c73a0891f02f11edd305f9
+      size: 4334
+    outs:
+    - path: Data/processed
+      hash: md5
+      md5: 791102c5ab2c2f4c84397e079a4f8441.dir
+      size: 44458896
+      nfiles: 6
+  model_building:
+    cmd: python src/model/model_building.py
+    deps:
+    - path: Data/processed/X_train_scaled.npy
+      hash: md5
+      md5: 6954648933bacfb57c1e1c32c56fbb88
+      size: 24249968
+    - path: Data/processed/y_train.npy
+      hash: md5
+      md5: a6cd6c9ce42e685bfa0eda58a34d0da2
+      size: 2425112
+    - path: src/model/model_building.py
+      hash: md5
+      md5: 9c4a83d271b08a04e781fd95c6e12f51
+      size: 3705
+    params:
+      params.yaml:
+        model_building.class_weight: balanced
+        model_building.n_estimators: 100
+        model_building.random_state: 42
+    outs:
+    - path: models/rf_model.pkl
+      hash: md5
+      md5: 3da882c943ae41749e64e415c5d2e9a6
+      size: 372381346
+  model_evaluation:
+    cmd: python src/model/model_evaluation.py
+    deps:
+    - path: Data/processed/X_test_scaled.npy
+      hash: md5
+      md5: f96120cb8796b1d9f28921a0a00491d3
+      size: 8083488
+    - path: Data/processed/X_train_scaled.npy
+      hash: md5
+      md5: 6954648933bacfb57c1e1c32c56fbb88
+      size: 24249968
+    - path: Data/processed/X_valid_scaled.npy
+      hash: md5
+      md5: d0c5064676e66aed7069dcb20fb192db
+      size: 8083408
+    - path: Data/processed/y_test.npy
+      hash: md5
+      md5: 115b81ac1ba3f802c27afdce3839d11a
+      size: 808464
+    - path: Data/processed/y_train.npy
+      hash: md5
+      md5: a6cd6c9ce42e685bfa0eda58a34d0da2
+      size: 2425112
+    - path: Data/processed/y_valid.npy
+      hash: md5
+      md5: eaa80a77b434ad118d57f89476bc2414
+      size: 808456
+    - path: models/rf_model.pkl
+      hash: md5
+      md5: 3da882c943ae41749e64e415c5d2e9a6
+      size: 372381346
+    - path: src/model/model_evaluation.py
+      hash: md5
+      md5: 12dc341f53c25f547b23d12e5f5b678b
+      size: 5404
+    outs:
+    - path: log/experiment_info.json
+      hash: md5
+      md5: 2a3130119883207d5c834322eff0d513
+      size: 685
+    - path: log/model_evaluation.log
+      hash: md5
+      md5: d41d8cd98f00b204e9800998ecf8427e
+      size: 0
+    - path: log/test_confusion_matrix.png
+      hash: md5
+      md5: da7e7b3948ce1d98cce9099b7ebef346
+      size: 17705
+    - path: log/validation_confusion_matrix.png
+      hash: md5
+      md5: 7e69b46fe5b7868799ec0eda1dcd8466
+      size: 18512
+  register_model:
+    cmd: python src/model/register_model.py
+    deps:
+    - path: log/experiment_info.json
+      hash: md5
+      md5: 2a3130119883207d5c834322eff0d513
+      size: 685
+    - path: src/model/register_model.py
+      hash: md5
+      md5: b29cd45f0772f544d80b38cf33cbc8a2
+      size: 2397
+    outs:
+    - path: log/model_registration.log
+      hash: md5
+      md5: cddea9066e8f68c81bea84011dcfcb5d
+      size: 747

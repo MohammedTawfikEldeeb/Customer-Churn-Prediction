@@ -1,0 +1,10 @@
+artifact_location: file:///C:/Mohamed/Work/Customer-Churn/mlruns/201485803707473238/models/m-c5bba6f53dcd4a618a499130107868c6/artifacts
+creation_timestamp: 1756106926636
+experiment_id: '201485803707473238'
+last_updated_timestamp: 1756106941077
+model_id: m-c5bba6f53dcd4a618a499130107868c6
+model_type: null
+name: validation_model
+source_run_id: 3cb6403921944596912c7235efc639c1
+status: 2
+status_message: null

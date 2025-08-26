@@ -1,0 +1,14 @@
+artifact_uri: file:///C:/Mohamed/Work/Customer-Churn/mlruns/201485803707473238/3cb6403921944596912c7235efc639c1/artifacts
+end_time: 1756106941163
+entry_point_name: ''
+experiment_id: '201485803707473238'
+lifecycle_stage: active
+run_id: 3cb6403921944596912c7235efc639c1
+run_name: Evaluation_validation
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1756106926393
+status: 3
+tags: []
+user_id: moham

@@ -1,0 +1,6 @@
+2025-08-25 09:50:27,913 - data_loading - ERROR - Error preprocessing data: 'str' object has no attribute 'dropna'
+2025-08-25 09:50:27,914 - data_loading - ERROR - Error in main: 'str' object has no attribute 'dropna'
+2025-08-25 09:51:38,309 - data_loading - ERROR - Error preprocessing data: 'str' object has no attribute 'dropna'
+2025-08-25 09:51:38,309 - data_loading - ERROR - Error in main: 'str' object has no attribute 'dropna'
+2025-08-25 09:52:42,195 - data_loading - ERROR - Error preprocessing data: 'str' object has no attribute 'dropna'
+2025-08-25 09:52:42,196 - data_loading - ERROR - Error in main: 'str' object has no attribute 'dropna'

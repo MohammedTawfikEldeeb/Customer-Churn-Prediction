@@ -1,0 +1,6 @@
+artifact_location: file:///C:/Mohamed/Work/Customer-Churn/mlruns/201485803707473238
+creation_time: 1756106925572
+experiment_id: '201485803707473238'
+last_update_time: 1756106925572
+lifecycle_stage: active
+name: Customer_Churn_RF

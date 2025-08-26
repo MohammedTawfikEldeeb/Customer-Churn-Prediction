@@ -1,0 +1,10 @@
+artifact_location: file:///C:/Mohamed/Work/Customer-Churn/mlruns/201485803707473238/models/m-b6c90ab572de4791bc14f75e65318749/artifacts
+creation_timestamp: 1756107373833
+experiment_id: '201485803707473238'
+last_updated_timestamp: 1756107384679
+model_id: m-b6c90ab572de4791bc14f75e65318749
+model_type: null
+name: test_model
+source_run_id: 9b92bacbf2514bd9a2f54a38e829f900
+status: 2
+status_message: null

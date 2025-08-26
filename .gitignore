@@ -12,3 +12,10 @@ wheels/
 notebooks/data/*.csv
 notebooks/mlruns/
 *.pkl
+
+model_building_errors.log
+model_evaluation_errors.log
+model_registration_errors.log
+preprocessing_errors.log
+log/model_evaluation.log
+log/model_registration.log

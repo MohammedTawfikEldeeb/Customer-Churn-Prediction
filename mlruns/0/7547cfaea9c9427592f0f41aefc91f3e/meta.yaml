@@ -1,0 +1,14 @@
+artifact_uri: mlflow-artifacts:/0/7547cfaea9c9427592f0f41aefc91f3e/artifacts
+end_time: 1756107560458
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 7547cfaea9c9427592f0f41aefc91f3e
+run_name: rf_model_evaluation
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1756107557008
+status: 3
+tags: []
+user_id: moham
