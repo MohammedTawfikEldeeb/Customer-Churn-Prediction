@@ -100,7 +100,7 @@ def main():
     try:
         logger.debug("Starting model evaluation...")
         root_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), "../../"))
-        model_path = os.path.join(root_dir, "models", "rf_model.pkl")
+        model_path = os.path.join(os.path.dirname(__file__), "..", "models", "rf_model.pkl")
         data_path = os.path.join(root_dir, "Data")
 
         model = load_model(model_path)

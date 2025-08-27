@@ -1,6 +1,7 @@
 import pandas as pd
 import numpy as np
 import os
+import pickle
 from sklearn.utils import shuffle
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler, LabelEncoder
@@ -26,17 +27,29 @@ logger.addHandler(file_handler)
 def preprocess_data(train_df: pd.DataFrame, test_df: pd.DataFrame):
     """Apply label encoding and combine data"""
     df_categorical = train_df.select_dtypes(include=['object']).columns
-    lbl = LabelEncoder()
+    label_encoders = {}
+
     try:
         for col in df_categorical:
+            lbl = LabelEncoder()
             train_df[col] = lbl.fit_transform(train_df[col])
             test_df[col] = lbl.transform(test_df[col])
+            label_encoders[col] = lbl  # نخزن encoder لكل عمود
+
+        # دمج الداتا
         df = pd.concat([train_df, test_df], ignore_index=True)
         df = shuffle(df, random_state=42).reset_index(drop=True)
+
+        # حفظ الـ encoders
+        os.makedirs("src/artifacts", exist_ok=True)
+        with open("src/artifacts/label_encoders.pkl", "wb") as f:
+            pickle.dump(label_encoders, f)
+
         logger.debug(f"df shape: {df.shape}")
         logger.debug("Saving full data...")
         os.makedirs("./Data/raw", exist_ok=True)
         df.to_csv("./Data/raw/full_data.csv", index=False)
+
     except Exception as e:
         logger.error(f"Error in preprocess_data: {e}")
         raise e
@@ -46,6 +59,7 @@ def preprocess_data(train_df: pd.DataFrame, test_df: pd.DataFrame):
 def split_data(df: pd.DataFrame):
     X = df.drop(columns=["Churn"])
     y = df["Churn"]
+
     X_train_full, X_test, y_train_full, y_test = train_test_split(
         X, y,
         test_size=0.2,
@@ -58,12 +72,19 @@ def split_data(df: pd.DataFrame):
         random_state=42,
         stratify=y_train_full
     )
+
     scaler = StandardScaler()
     scaler.fit(X_train)
+
+    # حفظ الـ scaler
+    os.makedirs("src/artifacts", exist_ok=True)
+    with open("src/artifacts/scaler.pkl", "wb") as f:
+        pickle.dump(scaler, f)
 
     X_train_scaled = scaler.transform(X_train)
     X_valid_scaled = scaler.transform(X_valid)
     X_test_scaled = scaler.transform(X_test)
+
     return X_train_scaled, X_valid_scaled, X_test_scaled, y_train, y_valid, y_test
 
 
@@ -107,6 +128,7 @@ def main():
         raise e
     finally:
         logger.debug("Data preprocessing completed")
+
 
 if __name__ == '__main__':
     main()

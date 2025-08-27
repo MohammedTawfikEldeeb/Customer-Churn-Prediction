@@ -7,6 +7,5 @@ pandas==2.3.0
 seaborn==0.13.2
 dvc==3.62.0
 dvc[s3]
-azure-ai-ml
-azure-identity
-mlflow[extras]
+pydantic-settings==2.10.1
+pydantic==2.10.1

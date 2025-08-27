@@ -13,6 +13,8 @@ dependencies = [
     "mlflow[extras]==3.3.1",
     "numpy==2.3.0",
     "pandas==2.3.0",
+    "pydantic==2.10.1",
+    "pydantic-settings==2.10.1",
     "scikit-learn==1.7.1",
     "seaborn==0.13.2",
 ]

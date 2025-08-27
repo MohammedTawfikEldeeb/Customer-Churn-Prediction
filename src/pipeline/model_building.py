@@ -87,10 +87,10 @@ def save_model(model, model_path: str):
         logger.debug('Finished saving model')
 
 
-def get_root_directory() -> str:
-    """Get the root directory (two levels up from this script's location)."""
+def get_src_directory() -> str:
+    """Get the src directory (one level up from this script's location)."""
     current_dir = os.path.dirname(os.path.abspath(__file__))
-    return os.path.abspath(os.path.join(current_dir, '../../'))
+    return os.path.abspath(os.path.join(current_dir, '../'))
 
 
 def main():
@@ -101,8 +101,8 @@ def main():
         X_train_scaled, y_train = load_processed_train_data("data")
         rf = train_rf(X_train_scaled, y_train, params["model_building"])
 
-        # ✅ خلي المسار consistent مع DVC
-        model_path = os.path.join(get_root_directory(), "models", "rf_model.pkl")
+        # ✅ Save model in src directory
+        model_path = os.path.join(get_src_directory(), "models", "rf_model.pkl")
         save_model(rf, model_path)
     except Exception as e:
         logger.error(f"Error in main: {e}")
