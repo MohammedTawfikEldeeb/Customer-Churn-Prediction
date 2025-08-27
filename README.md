@@ -4,7 +4,6 @@
 [![MLflow](https://img.shields.io/badge/MLflow-3.3.1-green.svg)](https://mlflow.org)
 [![DVC](https://img.shields.io/badge/DVC-3.62.0-orange.svg)](https://dvc.org)
 [![FastAPI](https://img.shields.io/badge/FastAPI-Latest-teal.svg)](https://fastapi.tiangolo.com)
-[![License](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
 > **A comprehensive machine learning project demonstrating advanced MLOps practices, experimental rigor, and production-ready deployment for customer churn prediction.**
 
