@@ -367,7 +367,7 @@ This project demonstrates my ability to:
 
 **Mohamed** - [mohamed.tawfik.eldeeb@gmail.com] 
 
-**Project Link**: [https://github.com/MohammedTawfikEldeeb/Customer-Churn](https://github.com/MohammedTawfikEldeeb/Customer-Churn)
+**Project Link**: [https://github.com/MohammedTawfikEldeeb/Customer-Churn-Prediction](https://github.com/MohammedTawfikEldeeb/Customer-Churn-Prediction)
 
 ---
 
